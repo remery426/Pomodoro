@@ -9,7 +9,7 @@ class Timer extends React.Component {
     this.displayTime = this.displayTime.bind(this);
     this.resetTimer = this.resetTimer.bind(this)
   }
-
+  //takes number of seconds and returns object with minutes and seconds
   secondsToTime(secs){
 
     let divisor_for_minutes = secs % (60 * 60);
@@ -29,7 +29,7 @@ class Timer extends React.Component {
     this.setState({ time: timeLeftVar });
     this.timer = setInterval(this.countDown, 1000);
   }
-
+  //function to add leading zero to time
   displayTime(){
     var secZero = ""
     var minZero = ""
@@ -41,12 +41,12 @@ class Timer extends React.Component {
     }
     return(minZero + (this.state.time.m).toString() + ":" + secZero + (this.state.time.s).toString())
   }
-  //Enter accurate times later
+  //resetTimer function sets the time to the proper time once it hits zero
   resetTimer(){
     if (this.state.currentAction == "Work"){
       if(this.state.round == 3){
         this.setState({
-          seconds: 15*60,
+          seconds: 15*60+1,
           time:{
             "s":0,
             "m":15
@@ -59,7 +59,7 @@ class Timer extends React.Component {
           "s":0,
           "m":3
         },
-        seconds:3*60
+        seconds:3*60+1
       })
     }
     }
@@ -83,6 +83,7 @@ class Timer extends React.Component {
     }
 
   }
+  //changes the message depending on break vs work
   changeMessage(){
         if (this.state.currentAction == "Work"){
             this.setState({
@@ -95,6 +96,7 @@ class Timer extends React.Component {
           })
         }
   }
+
   renderButton(){
     if(this.state.pause == true){
       return <Button onClick={()=>{this.setState({pause:false})}} color="green" text="Start"/>
@@ -103,6 +105,7 @@ class Timer extends React.Component {
       return <Button onClick={()=>{this.setState({pause:true})}} color = "red" text="Pause"/>
     }
   }
+  //decrements seconds by one
   countDown() {
     // Remove one second, set state so a re-render happens.
     if(this.state.pause == false){
