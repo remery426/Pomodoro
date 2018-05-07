@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import Header from './src/components/Header'
+import Header from '../src/components/Header'
 
 describe("Testing header component", ()=>{
   it('Header component rendering',()=>{

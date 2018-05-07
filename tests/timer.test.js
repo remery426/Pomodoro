@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow, mount} from 'enzyme'
-import Timer from './src/components/Timer'
+import Timer from '../src/components/Timer'
 
 describe("Testing timer component", ()=>{
   it('Testing that 25:00 minutes displays when component mounts',()=>{

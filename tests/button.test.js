@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow} from 'enzyme'
-import Button from './src/components/Button'
+import Button from '../src/components/Button'
 
 describe("Testing button component", ()=>{
   it('Displays what is passed',()=>{
