@@ -24,12 +24,13 @@ class Timer extends React.Component {
     };
     return obj;
   }
+  //Prior to component mounting create timer
   componentWillMount() {
     let timeLeftVar = this.secondsToTime(this.state.seconds);
     this.setState({ time: timeLeftVar });
     this.timer = setInterval(this.countDown, 1000);
   }
-  //function to add leading zero to time
+  //function to add leading zeros to minutes and seconds
   displayTime(){
     var secZero = ""
     var minZero = ""
@@ -96,7 +97,7 @@ class Timer extends React.Component {
           })
         }
   }
-
+  //display different button based on pause/start state
   renderButton(){
     if(this.state.pause == true){
       return <Button onClick={()=>{this.setState({pause:false})}} color="green" text="Start"/>
@@ -115,9 +116,7 @@ class Timer extends React.Component {
       time: this.secondsToTime(seconds),
       seconds: seconds,
     });
-
     // Check if we're at zero.
-
     if (seconds == 0){
       this.setState({
         pause:true

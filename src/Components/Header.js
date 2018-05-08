@@ -5,11 +5,11 @@ class Header extends React.Component{
   render(){
     return(
       <nav>
-      <div className =" nav-wrapper" >
+        <div className =" nav-wrapper" >
             <h1 className=" brand-logo">
               Pomodoro Timer
             </h1>
-          </div>
+        </div>
       </nav>
     )
   }
